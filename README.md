@@ -11,11 +11,14 @@ Emscripten -> https://github.com/kripken/emscripten
 
 x64 -> http://rjanicek.github.io/vice.js/js/x64.js
 
-###Prioritized Tasks
+###Tasks
 
 * fix asm.js for FireFox stable
 * fix keyboard
 * fix joystick
+* add other computers
+ * VIC-20
+ * C128
 * improve sound
 
 ###Best Configuration Options
