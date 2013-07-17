@@ -9,6 +9,8 @@ VICE -> http://sourceforge.net/projects/vice-emu/
 
 Emscripten -> https://github.com/kripken/emscripten
 
+x64 -> http://rjanicek.github.io/vice.js/js/x64.js
+
 ###Prioritized Tasks
 
 * fix asm.js for FireFox stable
