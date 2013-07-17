@@ -22,6 +22,7 @@ Emscripten -> https://github.com/kripken/emscripten
 * add other computers
  * VIC-20
  * C128
+* fix vice menu ui (F12)
 * improve sound
 * fix IE
 
