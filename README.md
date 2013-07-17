@@ -5,11 +5,14 @@ Versatile Commodore Emulator for JavaScript
 
 JavaScript port of VICE 2.4 using Emscripten.
 
+Website -> http://vice.janicek.co
+
+x64 -> http://rjanicek.github.io/vice.js/js/x64.js
+
 VICE -> http://sourceforge.net/projects/vice-emu/
 
 Emscripten -> https://github.com/kripken/emscripten
 
-x64 -> http://rjanicek.github.io/vice.js/js/x64.js
 
 ###Tasks
 
@@ -20,6 +23,8 @@ x64 -> http://rjanicek.github.io/vice.js/js/x64.js
  * VIC-20
  * C128
 * improve sound
+* fix IE
+
 
 ###Best Configuration Options
 
