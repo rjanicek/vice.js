@@ -1,0 +1,124 @@
+#tar -xvzf vice-2.4.tar.gz
+#mv vice-2.4 vice
+
+cd vice
+git apply 0001-Vice-2.4-Emscripten-changes.patch
+
+# --- build configure script from configure.in
+autoconf
+
+# --- clean up stuff from previous build
+../emscripten/emmake make clean
+
+# --- configure vice build
+../emscripten/emconfigure ./configure --enable-sdlui --with-sdlsound --without-resid --without-residfp
+
+# --- compile all the things!
+../emscripten/emmake make x64
+rc=$?
+if [[ $rc != 0 ]] ; then
+    exit $rc
+fi
+
+echo compiling js...
+cd ../fs
+../emscripten/emcc -O3 -o ../js/x64.js -s WARN_ON_UNDEFINED_SYMBOLS=1 --js-library ../library-vice.js \
+	-s EXPORTED_FUNCTIONS="['_main','_autostart_autodetect','_cmdline_options_string','_machine_trigger_reset','_set_playback_enabled']" \
+	--embed-file bin \
+	--embed-file files \
+        ../vice/src/*.o \
+        ../vice/src/arch/sdl/*.o \
+        ../vice/src/c64/*.o \
+        ../vice/src/c64/cart/*.o \
+        ../vice/src/core/*.o \
+        ../vice/src/diskimage/*.o \
+        ../vice/src/drive/*.o \
+        ../vice/src/drive/iec/*.o \
+        ../vice/src/drive/iec/c64exp/*.o \
+        ../vice/src/drive/iec/plus4exp/*.o \
+        ../vice/src/drive/iec128dcr/*.o \
+        ../vice/src/drive/iecieee/*.o \
+        ../vice/src/drive/ieee/*.o \
+        ../vice/src/drive/tcbm/*.o \
+        ../vice/src/fileio/*.o \
+        ../vice/src/fsdevice/*.o \
+        ../vice/src/gfxoutputdrv/*.o \
+        ../vice/src/iecbus/*.o \
+        ../vice/src/imagecontents/*.o \
+        ../vice/src/lib/p64/*.o \
+        ../vice/src/monitor/*.o \
+        ../vice/src/parallel/*.o \
+        ../vice/src/platform/*.o \
+        ../vice/src/printerdrv/*.o \
+        ../vice/src/raster/*.o \
+        ../vice/src/rs232drv/*.o \
+        ../vice/src/rtc/*.o \
+        ../vice/src/serial/*.o \
+        ../vice/src/sid/*.o \
+        ../vice/src/sounddrv/*.o \
+        ../vice/src/tape/*.o \
+        ../vice/src/userport/*.o \
+        ../vice/src/vdrive/*.o \
+        ../vice/src/vicii/*.o \
+        ../vice/src/video/*.o
+
+exit 1
+
+configure --help
+
+Optional Features:
+  --disable-option-checking  ignore unrecognized --enable/--with options
+  --disable-FEATURE       do not include FEATURE (same as --enable-FEATURE=no)
+  --enable-FEATURE[=ARG]  include FEATURE [ARG=yes]
+  --disable-textfield     disable enhanced text field widget
+  --disable-fullscreen    disable XFree86 fullscreen detection
+  --enable-gnomeui        enables GNOME UI support
+  --enable-sdlui          enables SDL UI support
+  --enable-gp2x           enables GP2X support
+  --enable-wiz            enables WIZ support
+  --enable-dingoo         enables native Dingoo support
+  --enable-dingux         enables Dingux (Dingoo Linux) support
+  --disable-nls           disables national language support
+  --disable-realdevice    disables access to real peripheral devices (CBM4Linux/OpenCBM)
+  --disable-ffmpeg        disable FFmpeg library support
+  --enable-quicktime      enables Apple QuickTime support
+  --enable-ethernet       enables The Final Ethernet emulation
+  --disable-ipv6          disables the checking for IPv6 compatibility
+  --enable-parsid         enables ParSID support
+  --disable-bundle        do not use application bundles on Macs
+  --enable-memmap         enable the memmap feature
+  --disable-editline      disable history in Cocoa UI's console
+  --disable-lame          disable MP3 export with LAME
+  --enable-static-lame    enable static LAME linking
+  --disable-rs232         disable RS232 support
+  --disable-midi          disable MIDI support
+  --enable-embedded       enable embedding of emulation data files
+  --disable-hidmgr        disable IOHIDManager joystick support on Mac
+  --disable-hidutils      disable HID Uitlities joystick support on Mac
+  --enable-debug          enable debug source options
+  --enable-debug-code     enable debugging code
+  --enable-inline         enable inlining of functions default=yes
+  --enable-arch[=arch]    enable architecture specific compilation [default=yes]
+  --enable-sse            enable the use of SSE [default=yes]
+  --enable-no-pic         enable the use of the no-pic switch [default=yes]
+  --disable-dependency-tracking  speeds up one-time build
+  --enable-dependency-tracking   do not reject slow dependency extractors
+
+Optional Packages:
+  --with-PACKAGE[=ARG]    use PACKAGE [ARG=yes]
+  --without-PACKAGE       do not use PACKAGE (same as --with-PACKAGE=no)
+  --with-xaw3d            use Xaw3d library instead of plain Xaw
+  --without-readline      do not try to use the system's readline library
+  --with-midas            use MIDAS sound system instead of Allegro for audio
+  --with-arts             use aRts sound system
+  --without-pulse         do not use PulseAudio sound system
+  --without-alsa          do not use the ALSA sound system
+  --without-oss           do not use the OSS sound system
+  --with-sdlsound         use SDL sound system
+  --without-resid         do not use the reSID engine
+  --without-residfp       do not use the reSID-fp engine
+  --without-png           do not use the PNG screenshot system
+  --without-zlib          do not use the zlib support
+  --with-picasso96        use Amiga P96 grafix system instead of cgx
+  --with-cocoa            enables native Cocoa UI on Macs
+  --with-x                use the X Window System
