@@ -25,7 +25,6 @@ cd ../fs
 ../emscripten/emcc -O3 -o ../js/x64.js -s WARN_ON_UNDEFINED_SYMBOLS=1 --js-library ../library-vice.js \
 	-s EXPORTED_FUNCTIONS="['_main','_autostart_autodetect','_cmdline_options_string','_machine_trigger_reset','_set_playback_enabled']" \
 	--embed-file bin \
-	--embed-file files \
         ../vice/src/*.o \
         ../vice/src/arch/sdl/*.o \
         ../vice/src/c64/*.o \

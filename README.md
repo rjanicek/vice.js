@@ -16,7 +16,6 @@ Emscripten -> https://github.com/kripken/emscripten
 
 ###Tasks
 
-* fix asm.js for FireFox stable
 * fix keyboard
 * fix joystick
 * add other computers
