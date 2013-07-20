@@ -25,7 +25,7 @@ Emscripten -> https://github.com/kripken/emscripten
 * fix IE
 
 ###Example
-'''html
+```html
 <!doctype html>
 <html lang="en-us">
   <head></head>
@@ -41,7 +41,7 @@ Emscripten -> https://github.com/kripken/emscripten
     <script type="text/javascript" src="js/x64.js"></script>
   </body>
 </html>
-'''
+```
 
 ###Best Configuration Options
 
