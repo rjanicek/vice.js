@@ -51,3 +51,9 @@ async mode:
 sync mode:
 * soundfragsize 2 -soundrate 22050 -soundsync 0 -ntsc
 * ntsc is important because browser requestAnimationFame is going to deliver 60 fps which means less cpu time is wasted during vsync delay
+
+###Resources
+
+C64 Wiki -> http://www.c64-wiki.com
+
+Commodore 64 keyboard matrix layout -> http://sta.c64.org/cbm64kbdlay.html

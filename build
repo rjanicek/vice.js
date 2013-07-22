@@ -23,7 +23,17 @@ fi
 echo compiling js...
 cd ../fs
 ../emscripten/emcc -O3 -o ../js/x64.js -s WARN_ON_UNDEFINED_SYMBOLS=1 --js-library ../library-vice.js \
-	-s EXPORTED_FUNCTIONS="['_main','_autostart_autodetect','_cmdline_options_string','_machine_trigger_reset','_set_playback_enabled']" \
+	-s EXPORTED_FUNCTIONS="[ \
+    '_autostart_autodetect', \
+    '_cmdline_options_string', \
+    '_joystick_set_value_and', \
+    '_joystick_set_value_or', \
+    '_keyboard_key_pressed', \
+    '_keyboard_key_released', \
+    '_machine_trigger_reset', \
+    '_main', \
+    '_set_playback_enabled' \
+  ]" \
 	--embed-file bin \
         ../vice/src/*.o \
         ../vice/src/arch/sdl/*.o \
