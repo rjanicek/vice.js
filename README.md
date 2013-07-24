@@ -5,17 +5,13 @@ Versatile Commodore Emulator for JavaScript
 
 JavaScript port of VICE 2.4 using Emscripten.
 
-Website -> http://vice.janicek.co
-
-x64 -> http://rjanicek.github.io/vice.js/js/x64.js
-
-VICE -> http://sourceforge.net/projects/vice-emu/
-
-Emscripten -> https://github.com/kripken/emscripten
+Website -> http://vice.janicek.co  
+x64 Library -> http://rjanicek.github.io/vice.js/js/x64.js  
+VICE -> http://sourceforge.net/projects/vice-emu/  
+Emscripten -> https://github.com/kripken/emscripten  
 
 ###Tasks
 
-* fix keyboard
 * fix joystick
 * add other computers
  * VIC-20
@@ -54,6 +50,10 @@ sync mode:
 
 ###Resources
 
-C64 Wiki -> http://www.c64-wiki.com
-
-Commodore 64 keyboard matrix layout -> http://sta.c64.org/cbm64kbdlay.html
+[C64 Wiki](http://www.c64-wiki.com)  
+[Commodore 64 keyboard matrix layout](http://sta.c64.org/cbm64kbdlay.html)  
+[SDL 1.2 to 2.0 Migration Guide](http://wiki.libsdl.org/moin.fcg/MigrationGuide)  
+[COMMODORE 64 ROGRAMMER'S REFERENCE GUIDE](http://www.c64.ch/programming/c64prg10.txt)  
+[VICE Manual](http://www.viceteam.org/vice_toc.html)  
+[requestAnimationFrame setting fps](http://creativejs.com/resources/requestanimationframe/)  
+[Coroutines in C](http://www.chiark.greenend.org.uk/~sgtatham/coroutines.html)  
