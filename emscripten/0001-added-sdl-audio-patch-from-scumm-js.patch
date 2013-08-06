@@ -1,4 +1,4 @@
-From 87c53b46d144c1a422fe961143de2a63321d7ce9 Mon Sep 17 00:00:00 2001
+From ca87db85e7af697b5005204aab408ac00f79d4e5 Mon Sep 17 00:00:00 2001
 From: Richard Janicek <r@janicek.co>
 Date: Wed, 26 Jun 2013 18:09:47 -0400
 Subject: [PATCH] -added sdl audio patch from scumm js -added check to
@@ -9,7 +9,7 @@ Subject: [PATCH] -added sdl audio patch from scumm js -added check to
  1 file changed, 216 insertions(+), 44 deletions(-)
 
 diff --git a/src/library_sdl.js b/src/library_sdl.js
-index 4477e45..333cc9d 100644
+index 80c7ac0..a17bfc2 100644
 --- a/src/library_sdl.js
 +++ b/src/library_sdl.js
 @@ -999,7 +999,7 @@ var LibrarySDL = {
@@ -21,7 +21,7 @@ index 4477e45..333cc9d 100644
          return 1;
          break;
        case -1: // SDL_QUERY
-@@ -1298,60 +1298,223 @@ var LibrarySDL = {
+@@ -1370,60 +1370,223 @@ var LibrarySDL = {
  
    // SDL_Audio
  
@@ -288,7 +288,7 @@ index 4477e45..333cc9d 100644
      }
      SDL.audio.paused = pauseOn;
    },
-@@ -1359,9 +1522,18 @@ var LibrarySDL = {
+@@ -1431,9 +1594,18 @@ var LibrarySDL = {
    SDL_CloseAudio__deps: ['SDL_PauseAudio', 'free'],
    SDL_CloseAudio: function() {
      if (SDL.audio) {

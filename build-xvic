@@ -1,0 +1,66 @@
+#!/bin/bash
+
+cd vice
+
+# --- compile all the things!
+../emscripten/emmake make xvic
+rc=$?
+if [[ $rc != 0 ]] ; then
+    exit $rc
+fi
+
+echo compiling js...
+cd ../fs-xvic
+../emscripten/emcc -O3 -o ../js/xvic.js -s WARN_ON_UNDEFINED_SYMBOLS=1 --js-library ../library-vice.js \
+    -s EXPORTED_FUNCTIONS="[ \
+        '_autostart_autodetect', \
+        '_cmdline_options_string', \
+        '_joystick_set_value_and', \
+        '_joystick_set_value_or', \
+        '_keyboard_key_pressed', \
+        '_keyboard_key_released', \
+        '_machine_trigger_reset', \
+        '_main', \
+        '_set_playback_enabled' \
+    ]" \
+    --embed-file bin \
+        ../vice/src/*.o \
+        ../vice/src/arch/sdl/*.o \
+        ../vice/src/c64/cart/*.o \
+        ../vice/src/core/*.o \
+        ../vice/src/diskimage/*.o \
+        ../vice/src/drive/*.o \
+        ../vice/src/drive/iec/*.o \
+        ../vice/src/drive/iec/c64exp/*.o \
+        ../vice/src/drive/iec/plus4exp/*.o \
+        ../vice/src/drive/iec128dcr/*.o \
+        ../vice/src/drive/iecieee/*.o \
+        ../vice/src/drive/ieee/*.o \
+        ../vice/src/drive/tcbm/*.o \
+        ../vice/src/fileio/*.o \
+        ../vice/src/fsdevice/*.o \
+        ../vice/src/gfxoutputdrv/*.o \
+        ../vice/src/iecbus/*.o \
+        ../vice/src/imagecontents/*.o \
+        ../vice/src/lib/p64/*.o \
+        ../vice/src/monitor/*.o \
+        ../vice/src/parallel/*.o \
+        ../vice/src/platform/*.o \
+        ../vice/src/printerdrv/*.o \
+        ../vice/src/raster/*.o \
+        ../vice/src/rs232drv/*.o \
+        ../vice/src/rtc/*.o \
+        ../vice/src/serial/*.o \
+        ../vice/src/sid/*.o \
+        ../vice/src/sounddrv/*.o \
+        ../vice/src/tape/*.o \
+        ../vice/src/userport/*.o \
+        ../vice/src/vdrive/*.o \
+        ../vice/src/vic20/*.o \
+        ../vice/src/vic20/cart/*.o \
+        ../vice/src/video/*.o
+
+# --- Wrap in closure
+cd ..
+cat pre.js js/xvic.js post.js > js/xvic.closure.js
+mv js/xvic.closure.js js/xvic.js
