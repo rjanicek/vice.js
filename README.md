@@ -51,7 +51,7 @@ sync mode:
 [C64 Wiki](http://www.c64-wiki.com)  
 [Commodore 64 keyboard matrix layout](http://sta.c64.org/cbm64kbdlay.html)  
 [COMMODORE 64 ROGRAMMER'S REFERENCE GUIDE](http://www.c64.ch/programming/c64prg10.txt)  
-[Commodore Manuals](http://www.commodore.ca/commodore-manuals/)
+[Commodore Manuals](http://www.commodore.ca/commodore-manuals/)  
 [Coroutines in C](http://www.chiark.greenend.org.uk/~sgtatham/coroutines.html)  
 [requestAnimationFrame setting fps](http://creativejs.com/resources/requestanimationframe/)  
 [SDL 1.2 to 2.0 Migration Guide](http://wiki.libsdl.org/moin.fcg/MigrationGuide)  
