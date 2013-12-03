@@ -60,7 +60,4 @@ cd ../fs-x64
         ../vice/src/vicii/*.o \
         ../vice/src/video/*.o
 
-# --- Wrap in closure
 cd ..
-cat pre.js js/x64.js post.js > js/x64.closure.js
-mv js/x64.closure.js js/x64.js

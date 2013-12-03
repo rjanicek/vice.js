@@ -1,0 +1,39 @@
+From 794a744ed6ea9f2b959c5836d7f0063496db093f Mon Sep 17 00:00:00 2001
+From: Richard Janicek <r@janicek.co>
+Date: Sun, 1 Dec 2013 21:18:44 -0500
+Subject: [PATCH] -changes to make VICE work
+
+---
+ src/library.js     | 2 +-
+ src/library_sdl.js | 2 +-
+ 2 files changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/src/library.js b/src/library.js
+index a5380c3..5345dbe 100644
+--- a/src/library.js
++++ b/src/library.js
+@@ -5139,7 +5139,7 @@ LibraryManager.library = {
+ 
+ #if ASM_JS
+ #if DLOPEN_SUPPORT == 0
+-    abort('need to build with DLOPEN_SUPPORT=1 to get dlopen support in asm.js');
++    // abort('need to build with DLOPEN_SUPPORT=1 to get dlopen support in asm.js');
+ #endif
+ #endif
+ 
+diff --git a/src/library_sdl.js b/src/library_sdl.js
+index eb8eea9..db631c1 100644
+--- a/src/library_sdl.js
++++ b/src/library_sdl.js
+@@ -1177,7 +1177,7 @@ var LibrarySDL = {
+         }
+         break;
+       case 1: // SDL_ENABLE
+-        Module['canvas'].exitPointerLock();
++        if (Module['canvas'].exitPointerLock) { Module['canvas'].exitPointerLock(); }
+         return 1;
+         break;
+       case -1: // SDL_QUERY
+-- 
+1.8.4.msysgit.0
+

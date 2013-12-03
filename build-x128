@@ -62,7 +62,4 @@ cd ../fs-x128
         ../vice/src/vicii/*.o \
         ../vice/src/video/*.o
 
-# --- Wrap in closure
 cd ..
-cat pre.js js/x128.js post.js > js/x128.closure.js
-mv js/x128.closure.js js/x128.js
