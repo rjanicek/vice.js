@@ -60,6 +60,17 @@ sync mode:
 * soundfragsize 2 -soundrate 22050 -soundsync 0 -ntsc
 * ntsc is important because browser requestAnimationFame is going to deliver 60 fps which means less cpu time is wasted during vsync delay
 
+Development
+-----------
+
+###How to find key codes
+* in `/vice/src/arch/sdl/kbd.c # sdlkbd_press()`
+* this line prints key codes to console when key is pressed
+```c
+fprintf(stderr, "%s: %i (%s),%i\n",__func__,key,SDL_GetKeyName(key),mod);
+```
+* activate by compiling vice with SDL_DEBUG flag
+
 Resources
 ---------
 
