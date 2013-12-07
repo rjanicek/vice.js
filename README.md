@@ -5,9 +5,9 @@ Versatile Commodore Emulator for JavaScript
 
 JavaScript port of VICE 2.4 using Emscripten.
 
-Website -> http://vice.janicek.co  
-VICE -> http://sourceforge.net/projects/vice-emu/  
-Emscripten -> https://github.com/kripken/emscripten  
+[Demo](http://retroplay.co/)  
+[VICE](http://sourceforge.net/projects/vice-emu/)  
+[Emscripten](https://github.com/kripken/emscripten)  
 
 Status
 ------
