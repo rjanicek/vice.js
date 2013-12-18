@@ -9,20 +9,16 @@ JavaScript port of VICE 2.4 using Emscripten.
 [VICE](http://sourceforge.net/projects/vice-emu/)  
 [Emscripten](https://github.com/kripken/emscripten)  
 
-Status
-------
-* Firefox 25 - ok
-    * -o3 -> 100 second asm.js compile time
-* Firefox 28 - sound clicks
-* Chrome 31 - slow
-* Chrome 33 - ok
-* IE 11 - broken
-    * Typed array constructor argument is invalid
+| Browser  | Version  | Status | Note
+| -------- | -------- | ------ | ----
+| Firefox  | 25, 26   | ok     | `-o3` (`--llvm-lto 3`) -> 100 second asm.js compile time
+|          | 28, 29   | sad    | sound clicks
+| Chrome   | 31       | sad    | slow
+|          | 33, 34   | ok     | tiny sound clicks
+| IE       | 11       | broken | did you expect something different? `Typed array constructor argument is invalid`
 
 Tasks
 -----
-* fix joystick
-* [Gamepad API](https://github.com/kripken/emscripten/pull/1763)
 * try using worker thread (emcc --proxy-to-worker)
 * add other computers
     * VIC-20
