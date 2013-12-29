@@ -11,10 +11,13 @@ fi
 
 echo compiling js...
 cd ../fs-x128
-../emscripten/emcc -O3 -o ../js/x128.js -s WARN_ON_UNDEFINED_SYMBOLS=1 -s TOTAL_MEMORY=33554432 --js-library ../library-vice.js \
+../emscripten/emcc -O2 -o ../js/x128.js -s FORCE_ALIGNED_MEMORY=1 -s DOUBLE_MODE=0 -s PRECISE_I64_MATH=0 -s WARN_ON_UNDEFINED_SYMBOLS=1 -s TOTAL_MEMORY=33554432 --js-library ../library-vice.js \
     -s EXPORTED_FUNCTIONS="[ \
         '_autostart_autodetect', \
         '_cmdline_options_string', \
+        '_file_system_attach_disk', \
+        '_file_system_detach_disk', \
+        '_file_system_get_disk_name', \
         '_joystick_set_value_and', \
         '_joystick_set_value_or', \
         '_keyboard_key_pressed', \
