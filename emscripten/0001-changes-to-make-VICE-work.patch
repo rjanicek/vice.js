@@ -1,7 +1,7 @@
-From 794a744ed6ea9f2b959c5836d7f0063496db093f Mon Sep 17 00:00:00 2001
+From 65ed1a3439e14eb2bf6b371603618cc16b1d5bdb Mon Sep 17 00:00:00 2001
 From: Richard Janicek <r@janicek.co>
-Date: Sun, 1 Dec 2013 21:18:44 -0500
-Subject: [PATCH] -changes to make VICE work
+Date: Tue, 7 Jan 2014 14:09:21 -0500
+Subject: [PATCH] * changes to make VICE work
 
 ---
  src/library.js     | 2 +-
@@ -9,10 +9,10 @@ Subject: [PATCH] -changes to make VICE work
  2 files changed, 2 insertions(+), 2 deletions(-)
 
 diff --git a/src/library.js b/src/library.js
-index a5380c3..5345dbe 100644
+index 6956960..aa26ecc 100644
 --- a/src/library.js
 +++ b/src/library.js
-@@ -5139,7 +5139,7 @@ LibraryManager.library = {
+@@ -5160,7 +5160,7 @@ LibraryManager.library = {
  
  #if ASM_JS
  #if DLOPEN_SUPPORT == 0
@@ -22,10 +22,10 @@ index a5380c3..5345dbe 100644
  #endif
  
 diff --git a/src/library_sdl.js b/src/library_sdl.js
-index eb8eea9..db631c1 100644
+index b5066b3..8ad9679 100644
 --- a/src/library_sdl.js
 +++ b/src/library_sdl.js
-@@ -1177,7 +1177,7 @@ var LibrarySDL = {
+@@ -1193,7 +1193,7 @@ var LibrarySDL = {
          }
          break;
        case 1: // SDL_ENABLE
@@ -35,5 +35,5 @@ index eb8eea9..db631c1 100644
          break;
        case -1: // SDL_QUERY
 -- 
-1.8.4.msysgit.0
+1.8.5.2.msysgit.0
 
