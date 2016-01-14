@@ -103,7 +103,8 @@ Examples
         </script>
         <script type="text/javascript" src="js/x64.js"></script>
     </body>
-</html>```
+</html>
+```
 
 Best Configuration Options
 --------------------------
