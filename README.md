@@ -74,6 +74,37 @@ Examples
 </html>
 ```
 
+###[send keyboard commands](http://rjanicek.github.io/vice.js/c64-keyboard.html)
+
+```html
+<!doctype html>
+<html lang="en-us">
+    <body>
+        <!-- the canvas *must not* have any border or padding, or mouse coords will be wrong -->
+        <canvas  id="canvas" style="border: 0px none;"></canvas>
+        <p><button onmousedown="sendSpaceKeyPressedCode()" onmouseup="sendSpaceKeyReleasedCode()">space bar</button></p>
+        <script type="text/javascript" >
+
+            var C64_SPACE_KEY_CODE = 32;
+
+            function sendSpaceKeyPressedCode() {
+                Module.ccall('keyboard_key_pressed', 'undefined', ['number'], [C64_SPACE_KEY_CODE]);  
+            }
+
+            function sendSpaceKeyReleasedCode() {
+                Module.ccall('keyboard_key_released', 'undefined', ['number'], [C64_SPACE_KEY_CODE]);
+            }
+
+            var Module = {
+                arguments: ['+sound'],
+                canvas: document.getElementById('canvas'),
+            };
+            
+        </script>
+        <script type="text/javascript" src="js/x64.js"></script>
+    </body>
+</html>```
+
 Best Configuration Options
 --------------------------
 
